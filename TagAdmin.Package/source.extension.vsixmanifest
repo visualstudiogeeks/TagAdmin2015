@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="a1e38ebe-f115-4ad6-bb1a-bf1c62ff4758" Version="1.0" Language="en-US" Publisher="Utkarsh Shigihalli and Tarun Arora" />
+    <DisplayName>Tag Admin for Visual Studio 2015</DisplayName>
+    <Description>Easily manage tags assigned to your work items in team project.</Description>
+    <License>Resources\LICENSE</License>
+    <Icon>Resources\Package.ico</Icon>
+    <PreviewImage>Resources\Preview.png</PreviewImage>
+    <Tags>vsts, visual studio team services, tag, management, tag manager, tag admin, tags</Tags>
+  </Metadata>
+  <Installation InstalledByMsi="false">
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0]" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" d:Source="Installed" Version="[14.0]" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="TagAdmin.UI" Path="|TagAdmin.UI|" />
+  </Assets>
+</PackageManifest>

@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="TagAdmin.UI.Views.AssociatedWorkitemsPageContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TagAdmin.UI.Views"
+             xmlns:converters="clr-namespace:TagAdmin.UI.Converters"
+             xmlns:wpf="clr-namespace:Microsoft.TeamFoundation.Controls.WPF;assembly=Microsoft.TeamFoundation.Controls"
+             xmlns:vsfx="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.14.0"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel Margin="5">
+        <TextBlock Margin="5" Text="{Binding StatusMessage}" DockPanel.Dock="Top" FontWeight="Bold" TextWrapping="Wrap"/>
+        <StackPanel DockPanel.Dock="Top">
+            <ListBox HorizontalContentAlignment="Stretch" BorderThickness="0"
+                                  ItemsSource="{Binding WorkitemDetails}"
+                     x:Name="ListBox" Margin="5">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Expander IsExpanded="False" ExpandDirection="Down">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"
+                                               TextWrapping="Wrap">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0} - {1}">
+                                                <Binding Path="Id" />
+                                                <Binding Path="WorkItemFields.Title" />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Expander.Header>
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
+                                <Grid Margin="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="ID: " FontWeight="Bold" Grid.Column="0" Grid.Row="0" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="{Binding Id}" Grid.Column="1" Grid.Row="0" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="Title: " FontWeight="Bold" Grid.Column="0" Grid.Row="1" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="{Binding WorkItemFields.Title}" TextWrapping="Wrap" TextAlignment="Justify" Grid.Column="1" Grid.Row="1" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="Work Item Type: " FontWeight="Bold" Grid.Column="0" Grid.Row="2" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="{Binding WorkItemFields.WorkItemType}" Grid.Column="1" Grid.Row="2" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="State: " FontWeight="Bold" Grid.Column="0" Grid.Row="3" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="{Binding WorkItemFields.State}" Grid.Column="1" Grid.Row="3" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="Tags: " FontWeight="Bold" Grid.Column="0" Grid.Row="4" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="{Binding WorkItemFields.Tags}" Grid.Column="1" Grid.Row="4" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="Area Path: " FontWeight="Bold" Grid.Column="0" Grid.Row="5" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="{Binding WorkItemFields.AreaPath}" Grid.Column="1" Grid.Row="5" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="Iteration Path: " FontWeight="Bold" Grid.Column="0" Grid.Row="6" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="{Binding WorkItemFields.IterationPath}" Grid.Column="1" Grid.Row="6" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="Created Date: " FontWeight="Bold" Grid.Column="0" Grid.Row="7" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="{Binding WorkItemFields.CreatedDate}" Grid.Column="1" Grid.Row="7" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="Created By: " FontWeight="Bold" Grid.Column="0" Grid.Row="8" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                    <TextBlock Text="{Binding WorkItemFields.CreatedBy}" Grid.Column="1" Grid.Row="8" Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}"/>
+                                </Grid>
+                            </ScrollViewer>
+                        </Expander>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </StackPanel>
+    </DockPanel>
+</UserControl>

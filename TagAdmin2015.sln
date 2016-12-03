@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagAdmin.Api", "TagAdmin.Api\TagAdmin.Api.csproj", "{874A16A7-D53D-4FA7-B650-525FDF721F0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagAdmin2015.Package", "TagAdmin.Package\TagAdmin2015.Package.csproj", "{84ADE673-D3C2-4389-911A-20C90BC2034B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagAdmin.UI", "TagAdmin.UI\TagAdmin.UI.csproj", "{233C57E5-7A4C-454E-B936-FBE6E21E6CDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagAdmin.Api.Tests", "TagAdmin.Api.Tests\TagAdmin.Api.Tests.csproj", "{07BB8130-50B5-4F32-BC6E-D1764725EB5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagAdmin.Common", "TagAdmin.Common\TagAdmin.Common.csproj", "{2600E87B-76C8-4864-8972-0532C2689374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{323A6799-747B-4B98-B183-19923552FFF0}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{874A16A7-D53D-4FA7-B650-525FDF721F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{874A16A7-D53D-4FA7-B650-525FDF721F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{874A16A7-D53D-4FA7-B650-525FDF721F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{874A16A7-D53D-4FA7-B650-525FDF721F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84ADE673-D3C2-4389-911A-20C90BC2034B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84ADE673-D3C2-4389-911A-20C90BC2034B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84ADE673-D3C2-4389-911A-20C90BC2034B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84ADE673-D3C2-4389-911A-20C90BC2034B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{233C57E5-7A4C-454E-B936-FBE6E21E6CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{233C57E5-7A4C-454E-B936-FBE6E21E6CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{233C57E5-7A4C-454E-B936-FBE6E21E6CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{233C57E5-7A4C-454E-B936-FBE6E21E6CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07BB8130-50B5-4F32-BC6E-D1764725EB5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07BB8130-50B5-4F32-BC6E-D1764725EB5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07BB8130-50B5-4F32-BC6E-D1764725EB5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2600E87B-76C8-4864-8972-0532C2689374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2600E87B-76C8-4864-8972-0532C2689374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2600E87B-76C8-4864-8972-0532C2689374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2600E87B-76C8-4864-8972-0532C2689374}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://geeks.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TagAdmin.Api\\TagAdmin.Api.csproj
+		SccProjectName1 = TagAdmin.Api
+		SccLocalPath1 = TagAdmin.Api
+		SccProjectUniqueName2 = TagAdmin.Package\\TagAdmin2015.Package.csproj
+		SccProjectName2 = TagAdmin.Package
+		SccLocalPath2 = TagAdmin.Package
+		SccProjectUniqueName3 = TagAdmin.UI\\TagAdmin.UI.csproj
+		SccProjectName3 = TagAdmin.UI
+		SccLocalPath3 = TagAdmin.UI
+		SccProjectUniqueName4 = TagAdmin.Api.Tests\\TagAdmin.Api.Tests.csproj
+		SccProjectName4 = TagAdmin.Api.Tests
+		SccLocalPath4 = TagAdmin.Api.Tests
+		SccProjectUniqueName5 = TagAdmin.Common\\TagAdmin.Common.csproj
+		SccProjectName5 = TagAdmin.Common
+		SccLocalPath5 = TagAdmin.Common
+	EndGlobalSection
+EndGlobal
