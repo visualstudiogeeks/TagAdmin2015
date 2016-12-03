@@ -15,6 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagAdmin.Common", "TagAdmin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{323A6799-747B-4B98-B183-19923552FFF0}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 		CHANGELOG.md = CHANGELOG.md
 		README.md = README.md
 	EndProjectSection
@@ -47,26 +48,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://geeks.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = TagAdmin.Api\\TagAdmin.Api.csproj
-		SccProjectName1 = TagAdmin.Api
-		SccLocalPath1 = TagAdmin.Api
-		SccProjectUniqueName2 = TagAdmin.Package\\TagAdmin2015.Package.csproj
-		SccProjectName2 = TagAdmin.Package
-		SccLocalPath2 = TagAdmin.Package
-		SccProjectUniqueName3 = TagAdmin.UI\\TagAdmin.UI.csproj
-		SccProjectName3 = TagAdmin.UI
-		SccLocalPath3 = TagAdmin.UI
-		SccProjectUniqueName4 = TagAdmin.Api.Tests\\TagAdmin.Api.Tests.csproj
-		SccProjectName4 = TagAdmin.Api.Tests
-		SccLocalPath4 = TagAdmin.Api.Tests
-		SccProjectUniqueName5 = TagAdmin.Common\\TagAdmin.Common.csproj
-		SccProjectName5 = TagAdmin.Common
-		SccLocalPath5 = TagAdmin.Common
 	EndGlobalSection
 EndGlobal
