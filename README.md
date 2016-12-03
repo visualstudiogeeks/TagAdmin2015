@@ -43,7 +43,7 @@ if you want to contribute to this project.
 
 For cloning and building this project yourself, make sure
 to install the
-[Extensibility Tools 2017](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ExtensibilityTools)
+[Extensibility Tools](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ExtensibilityTools)
 extension for Visual Studio which enables some features
 used by this project.
 
