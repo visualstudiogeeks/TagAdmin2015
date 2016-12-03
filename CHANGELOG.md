@@ -7,7 +7,7 @@
 
 Features that have a checkmark are complete and available for
 download in the
-[CI build](http://vsixgallery.com/extension/#).
+[CI build](http://vsixgallery.com/extension/a1e38ebe-f115-4ad6-bb1a-bf1c62ff4758/).
 
 # Change log
 

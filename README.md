@@ -1,9 +1,9 @@
 # Tag Admin for Visual Studio 2015
 
-[![Build status](https://ci.appveyor.com/api/projects/status/hv6uyc059rqbc6fj?svg=true)](https://ci.appveyor.com/project/madskristensen/extensibilitytools)
+[![Build status](https://ci.appveyor.com/api/projects/status/96tmm5hnfofyhena?svg=true)](https://ci.appveyor.com/project/onlyutkarsh/tagadmin2015)
 
 Download this extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=UtkarshShigihalliandTarunArora.TagAdminforVisualStudio2015)
-or get the [CI build](http://vsixgallery.com/extension/#).
+or get the [CI build](http://vsixgallery.com/extension/a1e38ebe-f115-4ad6-bb1a-bf1c62ff4758/).
 
 ---------------------------------------
 
