@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.TeamFoundation.Client;
+using Microsoft.TeamFoundation.WorkItemTracking.Client;
+using Microsoft.VisualStudio.TeamFoundation.WorkItemTracking;
 using Serilog;
 using TagAdmin.Api;
 using TagAdmin.Common.Entities;
@@ -28,6 +30,7 @@ namespace TagAdmin.UI.ViewModel
         private List<Tag> _tagsList;
         private ITeamFoundationContext _teamFoundationContext;
         private ILogger _log;
+        private DelegateCommand _openWorkitemCommand;
 
         #endregion Private Fields
 
@@ -60,6 +63,27 @@ namespace TagAdmin.UI.ViewModel
         #endregion Public Constructors
 
         #region Public Properties
+
+        public DelegateCommand OpenWorkitemCommand
+        {
+            get
+            {
+                return _openWorkitemCommand ?? (_openWorkitemCommand = new DelegateCommand(OnOpenWorkitemCommand));
+            }
+        }
+
+        private void OnOpenWorkitemCommand(object o)
+        {
+            _eventAggregator.GetEvent<ShowBusyTagAdminPage>().Publish(true);
+
+            int id;
+            if (o != null && int.TryParse(o.ToString(), out id))
+            {
+                _eventAggregator.GetEvent<ViewWorkitemForm>().Publish(id);
+            }
+            _eventAggregator.GetEvent<ShowBusyTagAdminPage>().Publish(false);
+
+        }
 
         public bool IsWorkInProgress
         {
@@ -173,6 +197,37 @@ namespace TagAdmin.UI.ViewModel
         private void Subscriptions()
         {
             _eventAggregator.GetEvent<TriggerAssociatedWorkItems>().Subscribe(OnGetAssociatedWorkItems, ThreadOption.BackgroundThread);
+            _eventAggregator.GetEvent<ViewWorkitemForm>().Subscribe(OnViewWorkitemInForm, ThreadOption.UIThread);
+        }
+
+        private void OnViewWorkitemInForm(int id)
+        {
+            var documentService = _serviceProvider.GetService(typeof(DocumentService)) as DocumentService;
+            if (documentService != null)
+            {
+                var workItemDocument = documentService.GetWorkItem(_teamFoundationContext.TeamProjectCollection, id, this);
+                try
+                {
+                    if (!workItemDocument.IsLoaded)
+                        workItemDocument.Load();
+                    documentService.ShowWorkItem(workItemDocument);
+                }
+                catch (Exception exception)
+                {
+                    _log.Information("Error opening workitem - TFSContext: {@context}, Exception: {@exception}",
+                new
+                {
+                    Collection = _teamFoundationContext.TeamProjectCollection.Name,
+                    User = _teamFoundationContext.TeamProjectCollection.ConfigurationServer.AuthorizedIdentity.UniqueName,
+                    Project = _teamFoundationContext.TeamProjectName
+                }, exception);
+                    _eventAggregator.GetEvent<NotifyErrorAssociatedWorkitemPage>().Publish(exception.Message);
+                }
+                finally
+                {
+                    workItemDocument.Release(this);
+                }
+            }
         }
 
         private void Triggers()
