@@ -7,10 +7,51 @@
              xmlns:converters="clr-namespace:TagAdmin.UI.Converters"
              xmlns:wpf="clr-namespace:Microsoft.TeamFoundation.Controls.WPF;assembly=Microsoft.TeamFoundation.Controls"
              xmlns:vsfx="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.14.0"
+             xmlns:platformUI="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.14.0"
              mc:Ignorable="d"
              x:Name="AssociatedWorkItemControl"
              d:DesignHeight="300"
              d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style x:Key="HyperlinkLikeButton"
+               TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
+            <Setter Property="Foreground"
+                    Value="{DynamicResource {x:Static platformUI:EnvironmentColors.ControlLinkTextBrushKey}}" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="true">
+                    <Setter Property="ToolTip" Value="Open Work Item"></Setter>
+                    <Setter Property="TextBlock.FontWeight"
+                            Value="Bold"></Setter>
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource {x:Static platformUI:EnvironmentColors.ControlLinkTextHoverBrushKey}}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <ControlTemplate.Resources>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="TextDecorations"
+                                                Value="Underline" />
+                                    </Style>
+                                </ControlTemplate.Resources>
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <DockPanel Margin="5">
         <TextBlock Margin="5"
                    Text="{Binding StatusMessage}"
@@ -21,7 +62,6 @@
             <ListBox HorizontalContentAlignment="Stretch"
                      BorderThickness="0"
                      ItemsSource="{Binding WorkitemDetails}"
-                    
                      x:Name="ListBox"
                      Margin="5">
                 <ListBox.ItemTemplate>
@@ -66,17 +106,20 @@
                                         <RowDefinition />
                                         <RowDefinition />
                                         <RowDefinition />
-                                        <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <TextBlock Text="ID: "
                                                FontWeight="Bold"
                                                Grid.Column="0"
                                                Grid.Row="0"
                                                Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}" />
-                                    <TextBlock Text="{Binding Id}"
-                                               Grid.Column="1"
-                                               Grid.Row="0"
-                                               Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}" />
+                                    <Button Grid.Column="1"
+                                            Grid.Row="0"
+                                            HorizontalAlignment="Left"
+                                            Command="{Binding DataContext.OpenWorkitemCommand, ElementName=ListBox}"
+                                            CommandParameter="{Binding Id}"
+                                            Style="{StaticResource HyperlinkLikeButton}">
+                                        <TextBlock Text="{Binding Id}"></TextBlock>
+                                    </Button>
                                     <TextBlock Text="Title: "
                                                FontWeight="Bold"
                                                Grid.Column="0"
@@ -151,13 +194,7 @@
                                                Grid.Column="1"
                                                Grid.Row="8"
                                                Foreground="{DynamicResource {x:Static vsfx:VsBrushes.CommandBarTextActiveKey}}" />
-                                    <Button Grid.Column="0"
-                                            Grid.Row="9"
-                                            Width="40"
-                                            Height="20"
-                                            HorizontalAlignment="Left"
-                                            Command="{Binding DataContext.OpenWorkitemCommand, ElementName=ListBox}"
-                                            CommandParameter="{Binding Id}">Open</Button>
+                                    
                                 </Grid>
                             </ScrollViewer>
                         </Expander>
